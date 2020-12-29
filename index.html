@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+    <!----------- Navigation ---------->
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
@@ -41,9 +41,10 @@
         </div>
     </nav>
 
+    <!----------- Login Modal ------------->
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
-            <!-- Modal content-->
+            <!----------  Modal content-------------->
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
@@ -78,6 +79,86 @@
         </div>
     </div>
 
+    <!------------Reservation Modal-------------->
+    <div id="reservationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <!---- X button ----->
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!------------- Reservation Form -------------->
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-2 col-form-label" for="num-of-guests">Number of Guests</label>
+                            <div class="col-12 col-sm-10">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="one" name="num-of-guests" class="custom-control-input">
+                                    <label for="one" class="custom-control-label">1</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="two" name="num-of-guests" class="custom-control-input">
+                                    <label for="two" class="custom-control-label">2</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="three" name="num-of-guests" class="custom-control-input">
+                                    <label for="three" class="custom-control-label">3</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="four" name="num-of-guests" class="custom-control-input">
+                                    <label for="four" class="custom-control-label">4</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="five" name="num-of-guests" class="custom-control-input">
+                                    <label for="five" class="custom-control-label">5</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="six" name="num-of-guests" class="custom-control-input">
+                                    <label for="six" class="custom-control-label">6</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--------------Smoking/Non-smoking Radio Buttons----------->
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-2 col-form-label" for="section">Section</label>
+                            <div class="col-12 col-sm-10 btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success active">
+                                    <input type="radio" name="section" id="non-smoking" autocomplete="off" checked>Non-Smoking
+                                </label>
+                                <label class="btn btn-danger">
+                                    <input type="radio" name="section" id="smoking" autocomplete="off">Smoking
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-2 col-form-label" for="date-and-time">Date and Time</label>
+                            <!-----------------
+                                I decided to use the  "date" and "time" type for the following inputs instead of just "text"
+                                In the real world, using them is more practical and functional
+                            ------------------>
+                            <div class="col-sm-4">
+                                <input type="date" name="date-and-time" class="form-control" placeholder="Date">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="time" name="date-and-time" class="form-control" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 col-sm-10 offset-sm-2">
+                                <!----Cancel Button --->
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Reserve</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Jumbotron ----------------->
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -89,9 +170,7 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a role="button" class="btn btn-block nav-link btn-warning"
-                    data-toggle="tooltip" data-html="true"  title="Or Call us at  <br><strong>+852 12345678</strong>"
-                    data-placement="bottom" href="#reserve-table">Reserve Table</a>
+                    <a role="button" class="btn btn-block btn-warning" data-toggle="modal" data-target="#reservationModal">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -99,11 +178,11 @@
 
     <div class="container">
 
-        <!------------------Carousel --------------------->
+        <!--------------- Carousel ------------>
         <div class="row row-content">
             <div class="col">
                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
-                    <!------------------Carousel Content--------------------->
+                    <!-------------- Carousel Content -------------->
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="d-block img-fluid" src="img/uthappizza.png" alt="Uthapizza">
@@ -149,62 +228,6 @@
             </div>
         </div>
 
-        <!-------------------------------Reservation Form -------------- --------------------->
-
-        <div class="row row-content align-items-center" id="reserve-table">
-            <div class="col-12 col-sm-8 offset-sm-2">
-                <div class="card">
-                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group row">
-                                <label class="col-12 col-sm-2 col-form-label" for="num-of-guests">Number of Guests</label>
-                                <div class="col-12 col-sm-10">
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="one" name="num-of-guests" class="custom-control-input">
-                                        <label for="one" class="custom-control-label">1</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="two" name="num-of-guests" class="custom-control-input">
-                                        <label for="two" class="custom-control-label">2</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="three" name="num-of-guests" class="custom-control-input">
-                                        <label for="three" class="custom-control-label">3</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="four" name="num-of-guests" class="custom-control-input">
-                                        <label for="four" class="custom-control-label">4</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="five" name="num-of-guests" class="custom-control-input">
-                                        <label for="five" class="custom-control-label">5</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="six" name="num-of-guests" class="custom-control-input">
-                                        <label for="six" class="custom-control-label">6</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-12 col-sm-2 col-form-label" for="date-and-time">Date and Time</label>
-                                <div class="col-sm-4">
-                                    <input type="date" name="date-and-time" class="form-control" placeholder="Date">
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="time" name="date-and-time" class="form-control" placeholder="Time">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-12 col-sm-10 offset-sm-2">
-                                    <button type="submit" class="btn btn-primary">Reserve</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <footer class="footer">
@@ -253,11 +276,6 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </body>
 
 </html>
